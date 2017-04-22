@@ -17,7 +17,9 @@
     <%= contact.fields_for :typ_countries do |country|%>
       <%= country.collection_select :id, TypCountry.order(:country),:id,:country, {prompt: "Please Select Country", selected: @contactInfo["typ_country_id"] }, {:class => "form-control"} %>
     <% end %>
-
+     <%= contact.fields_for :typ_regions do |region|%>
+      <%= region.grouped_collection_select :id, TypCountry.order(:country),:typ_region, :country, :id, :name, {prompt: "Please Select Region", selected: @contactInfo["typ_region_id"] }, {:class => "form-control"}%>
+    <% end %>
     <%= contact.fields_for :org_company do |company|%>
       <%= company.collection_select :id, OrgCompany.order(:name),:id,:name, {prompt: "Please Select Company", selected: @contactInfo["org_company_id"] }, {:class => "form-control"} %>
     <% end %>
