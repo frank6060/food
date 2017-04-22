@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get 'signin',  to: 'org_people/sessions#new'
     delete 'signout', to: 'org_people/sessions#destroy'
   end
+  resources :org_people
  resources :catalogues
   root "catalogues#index"
   # The priority is based upon order of creation: first created -> highest priority.
